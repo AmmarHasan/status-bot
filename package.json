@@ -1,0 +1,13 @@
+{
+  "name": "status-bot",
+  "version": "1.0.0",
+  "description": "A sample Node.js Slackbot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "beepboop-botkit": "^1.4.0",
+    "botkit": "~0.1.1"
+  }
+}

@@ -34,9 +34,17 @@ controller.on('bot_channel_join', function (bot, message) {
 
 controller.on('user_change', function (bot, message) {
   var status = message.user.profile;
-  var name = message.user.real_name;
+  var name = message.user.real_name || message.user.name;
   bot.say({
-    text: name + 'is ' + status.status_text + ' ' + status.status_emoji,
+    // text: `${name} is *${status.status_text} ${status.status_emoji}*`,
+    attachments: [
+      {
+        color: '#36a64f',
+        text: `${name} is *${status.status_text} ${status.status_emoji}*`,
+        mrkdwn_in: ['text'],
+        thumb_url: status.image_72
+      }
+    ],
     channel: channel
   });
 })
